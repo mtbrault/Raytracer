@@ -5,7 +5,7 @@
 ## Login   <b00bix@epitech.net>
 ## 
 ## Started on  Sun Oct 30 04:31:30 2016 Matthieu BRAULT
-## Last update Fri Feb 10 15:10:37 2017 Matthieu BRAULT
+## Last update Mon Feb 27 16:55:27 2017 Matthieu BRAULT
 ##
 
 CC	= gcc
@@ -13,9 +13,13 @@ CC	= gcc
 RM	= rm -f
 
 SRC	= calculate.c \
-	  form.c \
 	  main.c \
-	  autograder/my_put_pixel.c
+	  my_put_pixel.c \
+	  src/sphere.c \
+	  src/cylinder.c \
+	  src/cone.c \
+	  src/calc_dir_vector.c \
+	  src/utils.c
 
 NAME	= raytracer1
 

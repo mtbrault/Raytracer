@@ -5,7 +5,7 @@
 ** Login   <b00bix@epitech.net>
 ** 
 ** Started on  Thu Feb  9 14:51:38 2017 Matthieu BRAULT
-** Last update Mon Feb 13 13:02:18 2017 Matthieu BRAULT
+** Last update Mon Feb 27 16:44:15 2017 Matthieu BRAULT
 */
 
 #include <SFML/Graphics.h>
@@ -49,6 +49,7 @@ void	my_calculate(char *str, t_my_framebuffer *buffer)
   sfVector3f	coord;
   sfVector2i	screen_size;
   sfVector3f	eye_pos;
+  sfVector3f	spheree;
   float		cone;
   float		cylinder;
   float		sphere;
@@ -69,10 +70,13 @@ void	my_calculate(char *str, t_my_framebuffer *buffer)
 	  coord.x = 0;
 	  coord.y = width;
 	  coord.z = height;
-	  dir_vector = calc_dir_vector(screen_size, eye_pos);
-	  sphere = my_sphere(coord, dir_vector, 67);
-	  cone = my_cone(coord, dir_vector, 89);
-	  cylinder = my_cylinder(coord, dir_vector, 150);
+	  spheree.x = 500;
+	  spheree.y = 500;
+	  spheree.z = 500;
+	  dir_vector = calc_dir_vector(500, screen_size, coord);
+	  sphere = intersect_sphere(spheree, dir_vector, 67);
+	  cylinder = intersect_cylinder(coord, dir_vector, 150);
+	  cone = intersect_cone(coord, dir_vector, 35);
 	  if (cone > 0)
 	    my_put_pixel(buffer, width, height, sfGreen);
 	  if (cylinder > 0)
