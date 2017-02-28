@@ -5,7 +5,7 @@
 ** Login   <b00bix@epitech.net>
 ** 
 ** Started on  Mon Feb 27 12:46:59 2017 Matthieu BRAULT
-** Last update Tue Feb 28 15:41:35 2017 Matthieu BRAULT
+** Last update Tue Feb 28 19:00:18 2017 Matthieu BRAULT
 */
 
 #include <SFML/Graphics.h>
@@ -19,14 +19,14 @@ float	result(sfVector3f abc, sfVector3f coord, sfVector3f dir_vector, float delt
 
   if (delta < 0)
     return (-1.0f);
-  if (delta == 0)
+  else if (delta == 0)
     {
       if ((x1 = coord.y + ((abc.y * -1) / (2.0 * abc.x)) * dir_vector.y) >= 0)
 	return (x1);
       else
 	return (-1.0f);
     }
-  if (delta > 0)
+  else
     {
       x2 = ((abc.y * -1) - sqrt(delta)) / (2.0 * abc.x);
       x1 = ((abc.y * -1) + sqrt(delta)) / (2.0 * abc.x);

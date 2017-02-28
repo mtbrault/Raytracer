@@ -5,33 +5,16 @@
 ** Login   <b00bix@epitech.net>
 ** 
 ** Started on  Tue Feb  7 13:39:46 2017 Matthieu BRAULT
-** Last update Mon Feb 27 16:43:59 2017 Matthieu BRAULT
+** Last update Tue Feb 28 19:07:02 2017 Matthieu BRAULT
 */
 
 #ifndef RAYTRACER1_H_
 # define RAYTRACER1_H_
 
-# define SCREEN_WIDTH 1920
-# define SCREEN_HEIGHT 1080
-
 #include <SFML/Graphics.h>
+#include "struct.h"
 
-typedef struct		s_my_framebuffer
-{
-  sfUint8	*pixels;
-  int		width;
-  int		height;
-}			t_my_framebuffer;
-
-typedef struct		s_sf_function
-{
-  sfRenderWindow	*window;
-  sfTexture		*texture;
-  sfSprite		*sprite;
-  sfEvent		event;
-}			t_sf_function;
-
-sfVector3f	calc_dir_vector(float dist_to_plane, sfVector2i screen_size, sfVector3f screen_pos);
+sfVector3f	calc_dir_vector(float dist_to_plane, sfVector2i screen_size, sfVector2i screen_pos);
 sfVector3f	translate(sfVector3f to_translate, sfVector3f translations);
 sfVector3f	rotate_xyz(sfVector3f to_rotate, sfVector3f angles);
 sfVector3f	rotate_zyx(sfVector3f to_rotate, sfVector3f angles);
@@ -45,5 +28,7 @@ float		intersect_sphere(sfVector3f eye_pos, sfVector3f dir_vector, float radius)
 float		intersect_cylinder(sfVector3f eye_pos, sfVector3f dir_vector, float radius);
 float		intersect_cone(sfVector3f eye_pos, sfVector3f dir_vector, float semiangle);
 float		get_light_coef(sfVector3f light_vector, sfVector3f normal_vector);
+void		my_put_pixel(t_my_framebuffer *framebuffer, int x, int y, sfColor color);
+void		my_calculate(t_my_framebuffer *buffer);
 
 #endif /* !RAYTRACER1_H_ */

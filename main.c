@@ -5,7 +5,7 @@
 ** Login   <b00bix@epitech.net>
 ** 
 ** Started on  Wed Feb  8 16:43:45 2017 Matthieu BRAULT
-** Last update Fri Feb 10 15:09:48 2017 Matthieu BRAULT
+** Last update Tue Feb 28 18:59:33 2017 Matthieu BRAULT
 */
 
 #include <stdlib.h>
@@ -13,6 +13,7 @@
 #include <fcntl.h>
 #include <SFML/Graphics.h>
 #include "raytracer1.h"
+#include "struct.h"
 
 sfRenderWindow	*create_window(char *name, int width, int height)
 {
@@ -42,7 +43,9 @@ void	*buffer_create(t_my_framebuffer *buff, int width, int height)
       buff->pixels[s] = 0;
       s = s + 1;
     }
+  return ("");
 }
+
 void	window_open(t_sf_function *sf)
 {
   while (sfRenderWindow_isOpen(sf->window))
@@ -61,30 +64,11 @@ void	window_open(t_sf_function *sf)
   sfRenderWindow_destroy(sf->window);
 }
 
-int	read_map(char *name, t_my_framebuffer *buffer)
-{
-  int		fd;
-  char		buff[4097];
-  sfVector2i	*coord;
-
-  if ((coord = malloc(sizeof(*coord))) == NULL)
-    return (1);
-  if ((fd = open(name, O_RDONLY)) == -1)
-    return (1);
-  if (read(fd, buff, 4096) == -1)
-    return (1);
-  buff[4097] = '\0';
-  my_calculate(buff, buffer);
-  close(fd);
-}
-
-int	main(int ac, char **av)
+int	main()
 {
   t_my_framebuffer	*buff;
   t_sf_function		*sf;
 
-  if (ac != 2)
-    return (84);
   if ((buff = malloc(sizeof(*buff))) == NULL)
     return (84);
   if ((sf = malloc(sizeof(*sf))) == NULL)
@@ -97,8 +81,7 @@ int	main(int ac, char **av)
   sf->sprite = sfSprite_create();
   sf->texture = sfTexture_create(buff->width, buff->height);
   sfSprite_setTexture(sf->sprite, sf->texture, sfTrue);
-  if (read_map(av[1], buff) == 1)
-    return (84);
+  my_calculate(buff);
   sfTexture_updateFromPixels(sf->texture, buff->pixels, buff->width,
 			     buff->height, 0, 0);
   window_open(sf);

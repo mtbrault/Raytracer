@@ -5,10 +5,11 @@
 ** Login   <b00bix@epitech.net>
 ** 
 ** Started on  Thu Feb  9 14:51:38 2017 Matthieu BRAULT
-** Last update Mon Feb 27 16:44:15 2017 Matthieu BRAULT
+** Last update Tue Feb 28 19:09:34 2017 Matthieu BRAULT
 */
 
 #include <SFML/Graphics.h>
+#include "struct.h"
 #include "raytracer1.h"
 
 int	my_aff(float cylinder, float sphere, float cone)
@@ -43,10 +44,10 @@ int	my_aff(float cylinder, float sphere, float cone)
   return (0);
 }
 
-void	my_calculate(char *str, t_my_framebuffer *buffer)
+void	my_calculate(t_my_framebuffer *buffer)
 {
   sfVector3f	dir_vector;
-  sfVector3f	coord;
+  sfVector2i	coord;
   sfVector2i	screen_size;
   sfVector3f	eye_pos;
   sfVector3f	spheree;
@@ -57,6 +58,7 @@ void	my_calculate(char *str, t_my_framebuffer *buffer)
   int		height;
 
   height = 0;
+  eye_pos = eye_pos;
   screen_size.x = buffer->width;
   screen_size.y = buffer->height;
   eye_pos.x = -200;
@@ -67,16 +69,15 @@ void	my_calculate(char *str, t_my_framebuffer *buffer)
       width = 0;
       while (width <= screen_size.x)
 	{
-	  coord.x = 0;
-	  coord.y = width;
-	  coord.z = height;
+	  coord.x = width;
+	  coord.y = height;
 	  spheree.x = 500;
 	  spheree.y = 500;
 	  spheree.z = 500;
 	  dir_vector = calc_dir_vector(500, screen_size, coord);
-	  sphere = intersect_sphere(spheree, dir_vector, 67);
-	  cylinder = intersect_cylinder(coord, dir_vector, 150);
-	  cone = intersect_cone(coord, dir_vector, 35);
+	  sphere = intersect_sphere(eye_pos, dir_vector, 67);
+	  cylinder = intersect_cylinder(eye_pos, dir_vector, 150);
+	  cone = intersect_cone(eye_pos, dir_vector, 35);
 	  if (cone > 0)
 	    my_put_pixel(buffer, width, height, sfGreen);
 	  if (cylinder > 0)
