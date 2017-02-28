@@ -5,7 +5,7 @@
 ** Login   <b00bix@epitech.net>
 ** 
 ** Started on  Sun Feb 26 15:42:26 2017 Matthieu BRAULT
-** Last update Tue Feb 28 13:43:13 2017 Matthieu BRAULT
+** Last update Tue Feb 28 18:15:47 2017 Matthieu BRAULT
 */
 
 #include <SFML/Graphics.h>
@@ -31,7 +31,7 @@ float		intersect_cylinder(sfVector3f eye_pos, sfVector3f dir_vector,
   return (result(abc, eye_pos, dir_vector, delta));
 }
 
-sfVector3f	get_normal_cylinder(sfVector3f intersection_point);
+sfVector3f	get_normal_cylinder(sfVector3f intersection_point)
 {
   sfVector3f	zob;
   
