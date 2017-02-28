@@ -1,11 +1,11 @@
 /*
-** cone.c for  in /home/b00bix/raytracer1/src
+1;4601;0c** cone.c for  in /home/b00bix/raytracer1/src
 ** 
 ** Made by Matthieu BRAULT
 ** Login   <b00bix@epitech.net>
 ** 
 ** Started on  Sun Feb 26 15:44:24 2017 Matthieu BRAULT
-** Last update Mon Feb 27 16:53:30 2017 Matthieu BRAULT
+** Last update Tue Feb 28 13:43:02 2017 Matthieu BRAULT
 */
 
 #include <SFML/Graphics.h>
@@ -21,7 +21,7 @@ float		intersect_cone(sfVector3f eye_pos, sfVector3f dir_vector,
   float		delta;
 
   if (semiangle <= 0 || semiangle >= 90)
-    return (-1);
+    return (-1.0f);
   angle = (M_PI / 2.0) - (semiangle * M_PI / 180);
   powtan = pow(tan(angle), 2.0);
   abc.x = pow(dir_vector.x, 2.0) + pow(dir_vector.y, 2.0) - (pow(dir_vector.z, 2.0) / powtan);

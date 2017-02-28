@@ -5,7 +5,7 @@
 ** Login   <b00bix@epitech.net>
 ** 
 ** Started on  Sun Feb 26 15:42:26 2017 Matthieu BRAULT
-** Last update Mon Feb 27 16:54:38 2017 Matthieu BRAULT
+** Last update Tue Feb 28 13:43:13 2017 Matthieu BRAULT
 */
 
 #include <SFML/Graphics.h>
@@ -19,7 +19,7 @@ float		intersect_cylinder(sfVector3f eye_pos, sfVector3f dir_vector,
   float		delta;
   
   if (radius <= 0)
-    return (-1);
+    return (-1.0f);
   abc.x = pow(dir_vector.x, 2.0) + pow(dir_vector.y, 2.0);
   abc.y = 2.0 * eye_pos.x * dir_vector.x + 2.0 * eye_pos.y * dir_vector.y;
   abc.z = pow(eye_pos.x, 2.0) + pow(eye_pos.y, 2.0) - pow(radius, 2.0);
