@@ -1,11 +1,11 @@
 /*
-1;4601;0c** cone.c for  in /home/b00bix/raytracer1/src
+** cone.c for  in /home/b00bix/raytracer1/src
 ** 
 ** Made by Matthieu BRAULT
 ** Login   <b00bix@epitech.net>
 ** 
 ** Started on  Sun Feb 26 15:44:24 2017 Matthieu BRAULT
-** Last update Tue Feb 28 18:51:19 2017 Matthieu BRAULT
+** Last update Sat Mar  4 18:40:27 2017 Matthieu BRAULT
 */
 
 #include <SFML/Graphics.h>

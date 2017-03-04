@@ -5,7 +5,7 @@
 ** Login   <b00bix@epitech.net>
 ** 
 ** Started on  Thu Feb  9 14:51:38 2017 Matthieu BRAULT
-** Last update Tue Feb 28 19:09:34 2017 Matthieu BRAULT
+** Last update Sat Mar  4 18:42:41 2017 Matthieu BRAULT
 */
 
 #include <SFML/Graphics.h>
@@ -61,9 +61,9 @@ void	my_calculate(t_my_framebuffer *buffer)
   eye_pos = eye_pos;
   screen_size.x = buffer->width;
   screen_size.y = buffer->height;
-  eye_pos.x = -200;
+  eye_pos.x = 200;
   eye_pos.y = 0;
-  eye_pos.z = 0;
+  eye_pos.z = 120;
   while (height <= screen_size.y)
     {
       width = 0;
