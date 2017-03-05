@@ -5,7 +5,7 @@
 ** Login   <b00bix@epitech.net>
 ** 
 ** Started on  Thu Feb  9 14:51:38 2017 Matthieu BRAULT
-** Last update Sat Mar  4 18:42:41 2017 Matthieu BRAULT
+** Last update Sun Mar  5 18:19:43 2017 Matthieu BRAULT
 */
 
 #include <SFML/Graphics.h>
@@ -61,9 +61,9 @@ void	my_calculate(t_my_framebuffer *buffer)
   eye_pos = eye_pos;
   screen_size.x = buffer->width;
   screen_size.y = buffer->height;
-  eye_pos.x = 200;
+  eye_pos.x = -200;
   eye_pos.y = 0;
-  eye_pos.z = 120;
+  eye_pos.z = 0;
   while (height <= screen_size.y)
     {
       width = 0;
@@ -80,8 +80,8 @@ void	my_calculate(t_my_framebuffer *buffer)
 	  cone = intersect_cone(eye_pos, dir_vector, 35);
 	  if (cone > 0)
 	    my_put_pixel(buffer, width, height, sfGreen);
-	  if (cylinder > 0)
-	    my_put_pixel(buffer, width, height, sfRed);
+	  /* if (cylinder > 0) */
+	  /*   my_put_pixel(buffer, width, height, sfRed); */
 	  if (sphere > 0)
 	    my_put_pixel(buffer, width, height, sfYellow);
 	  /* if (my_aff(cylinder, sphere, cone) == 1) */

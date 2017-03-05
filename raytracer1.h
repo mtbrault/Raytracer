@@ -5,7 +5,7 @@
 ** Login   <b00bix@epitech.net>
 ** 
 ** Started on  Tue Feb  7 13:39:46 2017 Matthieu BRAULT
-** Last update Sat Mar  4 18:25:25 2017 Matthieu BRAULT
+** Last update Sun Mar  5 18:18:31 2017 Matthieu BRAULT
 */
 
 #ifndef RAYTRACER1_H_
@@ -35,7 +35,7 @@ sfVector3f	get_normal_cone(sfVector3f intersection_point, float semiangle);
 */
 
 float		intersect_plane(sfVector3f eye_pos, sfVector3f dir_vector);
-float		result(sfVector3f abc, sfVector3f coord, sfVector3f dir_vector, float delta);
+float		result(sfVector3f abc, float delta);
 float		intersect_sphere(sfVector3f eye_pos, sfVector3f dir_vector, float radius);
 float		intersect_cylinder(sfVector3f eye_pos, sfVector3f dir_vector, float radius);
 float		intersect_cone(sfVector3f eye_pos, sfVector3f dir_vector, float semiangle);

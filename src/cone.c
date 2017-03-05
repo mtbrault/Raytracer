@@ -5,7 +5,7 @@
 ** Login   <b00bix@epitech.net>
 ** 
 ** Started on  Sun Feb 26 15:44:24 2017 Matthieu BRAULT
-** Last update Sat Mar  4 18:40:27 2017 Matthieu BRAULT
+** Last update Sun Mar  5 18:17:46 2017 Matthieu BRAULT
 */
 
 #include <SFML/Graphics.h>
@@ -32,7 +32,7 @@ float		intersect_cone(sfVector3f eye_pos, sfVector3f dir_vector,
   if (abc.x == 0)
     return (-1.0f);
   delta = pow(abc.y, 2.0) - 4 * abc.x * abc.z;
-  return (result(abc, eye_pos, dir_vector, delta));
+  return (result(abc, delta));
 }
 
 sfVector3f	get_normal_cone(sfVector3f intersection_point, float semiangle)
