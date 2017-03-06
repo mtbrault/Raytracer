@@ -5,7 +5,7 @@
 ** Login   <b00bix@epitech.net>
 ** 
 ** Started on  Sun Feb 26 15:42:26 2017 Matthieu BRAULT
-** Last update Sun Mar  5 18:18:12 2017 Matthieu BRAULT
+** Last update Mon Mar  6 12:13:53 2017 Matthieu BRAULT
 */
 
 #include <SFML/Graphics.h>
@@ -33,5 +33,10 @@ float		intersect_cylinder(sfVector3f eye_pos, sfVector3f dir_vector,
 
 sfVector3f	get_normal_cylinder(sfVector3f intersection_point)
 {
-  return (intersection_point);
+  sfVector3f	cylinder;
+
+  cylinder.x = intersection_point.x;
+  cylinder.y = intersection_point.y;
+  cylinder.z = 0;
+  return (cylinder);
 }

@@ -5,7 +5,7 @@
 ** Login   <b00bix@epitech.net>
 ** 
 ** Started on  Sun Feb 26 15:41:30 2017 Matthieu BRAULT
-** Last update Tue Feb 28 18:51:01 2017 Matthieu BRAULT
+** Last update Mon Mar  6 12:17:23 2017 Matthieu BRAULT
 */
 
 #include <SFML/Graphics.h>
@@ -24,11 +24,10 @@ float		intersect_plane(sfVector3f eye_pos, sfVector3f dir_vector)
 
 sfVector3f	get_normal_plane(int upward)
 {
-  sfVector3f	zob;
+  sfVector3f	plane;
 
-  upward = upward;
-  zob.x = 0;
-  zob.y = 0;
-  zob.z = 0;
-  return (zob);
+  plane.x = 0;
+  plane.y = 0;
+  plane.z = 100;
+  return (plane);
 }

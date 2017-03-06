@@ -5,7 +5,7 @@
 ** Login   <b00bix@epitech.net>
 ** 
 ** Started on  Sun Feb 26 15:44:24 2017 Matthieu BRAULT
-** Last update Sun Mar  5 18:17:46 2017 Matthieu BRAULT
+** Last update Mon Mar  6 19:02:25 2017 Matthieu BRAULT
 */
 
 #include <SFML/Graphics.h>
@@ -23,7 +23,8 @@ float		intersect_cone(sfVector3f eye_pos, sfVector3f dir_vector,
   if (semiangle <= 0 || semiangle >= 90)
     return (-1.0f);
   angle = (M_PI / 2.0) - (semiangle * M_PI / 180);
-  powtan = pow(tan(angle), 2.0);
+  if ((powtan = pow(tan(angle), 2.0)) == 0)
+    return (-1.0f);
   abc.x = pow(dir_vector.x, 2.0) + pow(dir_vector.y, 2.0) - (pow(dir_vector.z, 2.0) / powtan);
   abc.y = (2.0 * eye_pos.x * dir_vector.x) + (2.0 * eye_pos.y * dir_vector.y) - (2.0 * eye_pos.z * dir_vector.z / powtan);
   abc.z = pow(eye_pos.x, 2.0) + pow(eye_pos.y, 2.0) - pow(eye_pos.z, 2.0) / powtan;

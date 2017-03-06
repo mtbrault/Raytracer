@@ -5,7 +5,7 @@
 ** Login   <b00bix@epitech.net>
 ** 
 ** Started on  Thu Feb  9 14:51:38 2017 Matthieu BRAULT
-** Last update Sun Mar  5 18:19:43 2017 Matthieu BRAULT
+** Last update Mon Mar  6 09:14:18 2017 Matthieu BRAULT
 */
 
 #include <SFML/Graphics.h>
@@ -54,6 +54,7 @@ void	my_calculate(t_my_framebuffer *buffer)
   float		cone;
   float		cylinder;
   float		sphere;
+  float		plane;
   int		width;
   int		height;
 
@@ -75,15 +76,18 @@ void	my_calculate(t_my_framebuffer *buffer)
 	  spheree.y = 500;
 	  spheree.z = 500;
 	  dir_vector = calc_dir_vector(500, screen_size, coord);
-	  sphere = intersect_sphere(eye_pos, dir_vector, 67);
+	  sphere = intersect_sphere(eye_pos, dir_vector, 42);
 	  cylinder = intersect_cylinder(eye_pos, dir_vector, 150);
-	  cone = intersect_cone(eye_pos, dir_vector, 35);
+	  plane = intersect_plane(eye_pos, dir_vector);
+	  cone = intersect_cone(eye_pos, dir_vector, 20);
 	  if (cone > 0)
 	    my_put_pixel(buffer, width, height, sfGreen);
+	  if (plane > 0)
+	    my_put_pixel(buffer, width, height, sfBlue);
 	  /* if (cylinder > 0) */
 	  /*   my_put_pixel(buffer, width, height, sfRed); */
-	  if (sphere > 0)
-	    my_put_pixel(buffer, width, height, sfYellow);
+	  /* if (sphere > 0) */
+	  /*   my_put_pixel(buffer, width, height, sfYellow); */
 	  /* if (my_aff(cylinder, sphere, cone) == 1) */
 	  /*   my_put_pixel(buffer, width, height, sfRed);	   */
 	  /* else if (my_aff(cylinder, sphere, cone) == 2) */
