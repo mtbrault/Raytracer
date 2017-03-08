@@ -5,7 +5,7 @@
 ** Login   <b00bix@epitech.net>
 ** 
 ** Started on  Sun Feb 26 15:41:30 2017 Matthieu BRAULT
-** Last update Mon Mar  6 12:17:23 2017 Matthieu BRAULT
+** Last update Wed Mar  8 19:03:02 2017 Matthieu BRAULT
 */
 
 #include <SFML/Graphics.h>
@@ -26,8 +26,17 @@ sfVector3f	get_normal_plane(int upward)
 {
   sfVector3f	plane;
 
-  plane.x = 0;
-  plane.y = 0;
-  plane.z = 100;
+  if (upward == 1)
+    {
+      plane.x = 0;
+      plane.y = 0;
+      plane.z = 1;
+    }
+  else
+    {
+      plane.x = 0;
+      plane.y = 0;
+      plane.z = -1;
+    }
   return (plane);
 }
