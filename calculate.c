@@ -5,7 +5,7 @@
 ** Login   <b00bix@epitech.net>
 ** 
 ** Started on  Thu Feb  9 14:51:38 2017 Matthieu BRAULT
-** Last update Mon Mar  6 09:14:18 2017 Matthieu BRAULT
+** Last update Wed Mar  8 14:34:18 2017 Matthieu BRAULT
 */
 
 #include <SFML/Graphics.h>
@@ -80,7 +80,7 @@ void	my_calculate(t_my_framebuffer *buffer)
 	  cylinder = intersect_cylinder(eye_pos, dir_vector, 150);
 	  plane = intersect_plane(eye_pos, dir_vector);
 	  cone = intersect_cone(eye_pos, dir_vector, 20);
-	  if (cone > 0)
+	  if (sphere > 0)
 	    my_put_pixel(buffer, width, height, sfGreen);
 	  if (plane > 0)
 	    my_put_pixel(buffer, width, height, sfBlue);
