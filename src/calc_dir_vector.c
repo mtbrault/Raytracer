@@ -5,12 +5,13 @@
 ** Login   <b00bix@epitech.net>
 ** 
 ** Started on  Sun Feb 26 15:34:55 2017 Matthieu BRAULT
-** Last update Tue Feb 28 19:07:31 2017 Matthieu BRAULT
+** Last update Thu Mar  9 16:43:59 2017 Matthieu BRAULT
 */
 
 #include "raytracer1.h"
 
-sfVector3f	calc_dir_vector(float dist_to_plane, sfVector2i screen_size, sfVector2i screen_pos)
+sfVector3f	calc_dir_vector(float dist_to_plane, sfVector2i screen_size,
+				sfVector2i screen_pos)
 {
   sfVector3f	dir_vector;
 

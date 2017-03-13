@@ -5,7 +5,7 @@
 ** Login   <b00bix@epitech.net>
 ** 
 ** Started on  Sun Feb 26 15:39:23 2017 Matthieu BRAULT
-** Last update Mon Mar  6 12:10:28 2017 Matthieu BRAULT
+** Last update Thu Mar  9 16:46:22 2017 Matthieu BRAULT
 */
 
 #include <math.h>
@@ -43,7 +43,7 @@ sfVector3f	rotate_zyx(sfVector3f to_rotate, sfVector3f angles)
   float		angle1;
   float		angle2;
   float		angle3;
-  
+
   angle1 = angles.x * (M_PI / 180);
   angle2 = angles.y * (M_PI / 180);
   angle3 = angles.z * (M_PI / 180);

@@ -5,49 +5,63 @@
 ** Login   <b00bix@epitech.net>
 ** 
 ** Started on  Thu Feb  9 14:51:38 2017 Matthieu BRAULT
-** Last update Wed Mar  8 16:09:52 2017 Matthieu BRAULT
+** Last update Thu Mar  9 17:19:05 2017 Matthieu BRAULT
 */
 
 #include <SFML/Graphics.h>
 #include "struct.h"
 #include "raytracer1.h"
 
+void	my_aff(sfVector3f form, float plane, t_my_framebuffer *buffer,
+	       sfVector2i pos)
+{
+  /* if (form.x > 0) */
+  /*   my_put_pixel(buffer, pos.y, pos.x, sfRed); */
+  /* if ((form.y < form.x && form.y > 0) || form.x < 0) */
+  /*   my_put_pixel(buffer, pos.y, pos.x, sfGreen); */
+  /* if ((form.z < form.y && from.z > 0) ||) */
+  /*   my_put_pixel(buffer, pos.y, pos.x, sfYellow); */
+  /* if (plane < form.z && plane > 0) */
+  /*   my_put_pixel( */
+  if (form.x > 0 && plane > 0)
+    {
+      if (form.x < plane)
+	my_put_pixel(buffer, pos.y, pos.x, sfBlue);
+      else
+	my_put_pixel(buffer, pos.y, pos.x, sfGreen);
+    }
+  else if (form.x > 0)
+    my_put_pixel(buffer, pos.y, pos.x, sfBlue);
+  else if (plane > 0)
+    my_put_pixel(buffer, pos.y, pos.x, sfGreen);
+  
+}
+
 void	my_calculate(t_my_framebuffer *buffer)
 {
   sfVector3f	dir_vector;
   sfVector2i	coord;
   sfVector2i	screen_size;
-  sfVector3f	eye_pos;
-  float		cone;
-  float		cylinder;
-  float		sphere;
+  sfVector3f	form;
   float		plane;
-  int		width;
-  int		height;
 
-  height = 0;
-  eye_pos = eye_pos;
-  screen_size.x = buffer->width;
-  screen_size.y = buffer->height;
-  eye_pos.x = -500;
-  eye_pos.y = 100;
-  eye_pos.z = 0;
-  while (height <= screen_size.y)
+  buffer->pos.x = 0;
+  screen_size = ((sfVector2i) {buffer->width, buffer->height});
+  buffer->eye_pos = ((sfVector3f) {-1000, 0, 20});
+  while (buffer->pos.x <= screen_size.y)
     {
-      width = 0;
-      while (width <= screen_size.x)
+      buffer->pos.y = 0;
+      while (buffer->pos.y <= screen_size.x)
 	{
-	  coord.x = width;
-	  coord.y = height;
+	  coord = ((sfVector2i) {buffer->pos.y, buffer->pos.x});
 	  dir_vector = calc_dir_vector(500, screen_size, coord);
-	  sphere = intersect_sphere(eye_pos, dir_vector, 180);
-	  cylinder = intersect_cylinder(eye_pos, dir_vector, 150);
-	  plane = intersect_plane(eye_pos, dir_vector);
-	  if (sphere > 0)
-	    my_put_pixel(buffer, width, height, sfRed);
-	  cone = intersect_cone(eye_pos, dir_vector, 20);
-	  width = width + 1;
+	  form.x = intersect_sphere(buffer->eye_pos, dir_vector, 400);
+	  form.y = intersect_cylinder(buffer->eye_pos, dir_vector, 150);
+	  plane = intersect_plane(buffer->eye_pos, dir_vector);
+	  form.z = intersect_cone(buffer->eye_pos, dir_vector, 20);
+	  my_aff(form, plane, buffer, buffer->pos);
+	  buffer->pos.y = buffer->pos.y + 1;
 	}
-      height = height + 1;
+      buffer->pos.x = buffer->pos.x + 1;
     }
 }

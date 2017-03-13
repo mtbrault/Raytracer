@@ -5,7 +5,7 @@
 ** Login   <b00bix@epitech.net>
 ** 
 ** Started on  Sun Feb 26 15:41:30 2017 Matthieu BRAULT
-** Last update Wed Mar  8 19:03:02 2017 Matthieu BRAULT
+** Last update Thu Mar  9 17:13:15 2017 Matthieu BRAULT
 */
 
 #include <SFML/Graphics.h>
@@ -13,7 +13,7 @@
 float		intersect_plane(sfVector3f eye_pos, sfVector3f dir_vector)
 {
   float	k;
-  
+
   if (dir_vector.z == 0)
     return (-1.0f);
   k = (float)(-eye_pos.z / dir_vector.z);

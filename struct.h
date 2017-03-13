@@ -5,7 +5,7 @@
 ** Login   <b00bix@epitech.net>
 ** 
 ** Started on  Tue Feb 28 18:52:44 2017 Matthieu BRAULT
-** Last update Tue Feb 28 18:54:13 2017 Matthieu BRAULT
+** Last update Thu Mar  9 17:21:38 2017 Matthieu BRAULT
 */
 
 #ifndef STRUCT_H_
@@ -19,6 +19,8 @@ typedef struct		s_my_framebuffer
   sfUint8	*pixels;
   int		width;
   int		height;
+  sfVector3f	eye_pos;
+  sfVector2i	pos;
 }			t_my_framebuffer;
 
 typedef struct		s_sf_function
