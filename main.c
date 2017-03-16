@@ -5,7 +5,7 @@
 ** Login   <b00bix@epitech.net>
 ** 
 ** Started on  Wed Feb  8 16:43:45 2017 Matthieu BRAULT
-** Last update Mon Mar 13 22:21:22 2017 Matthieu BRAULT
+** Last update Thu Mar 16 13:46:45 2017 Matthieu BRAULT
 */
 
 #include <stdlib.h>
@@ -52,6 +52,7 @@ void	window_open(t_sf_function *sf, t_my_framebuffer *buff)
     {
       while (sfRenderWindow_pollEvent(sf->window, &sf->event))
 	{
+	  my_translate(buff, sf);
 	  if ((sf->event.type == sfEvtClosed))
 	    sfRenderWindow_close(sf->window);
 	  if (sfKeyboard_isKeyPressed(sfKeyEscape))
@@ -75,7 +76,7 @@ int	main()
     return (84);
   buff->width = SCREEN_WIDTH;
   buff->height = SCREEN_HEIGHT;
-  buff->eye_pos = ((sfVector3f) {-1000, 0, 0});
+  buff->eye_pos = ((sfVector3f) {-800, 0, 0});
   sf->window = create_window("Raytracer 1", buff->width, buff->height);
   if (buffer_create(buff, buff->width, buff->height) == NULL)
     return (84);

@@ -5,7 +5,7 @@
 ## Login   <b00bix@epitech.net>
 ## 
 ## Started on  Sun Oct 30 04:31:30 2016 Matthieu BRAULT
-## Last update Tue Feb 28 18:49:00 2017 Matthieu BRAULT
+## Last update Thu Mar 16 13:58:03 2017 Matthieu BRAULT
 ##
 
 CC	= gcc
@@ -15,6 +15,7 @@ RM	= rm -f
 SRC	= calculate.c \
 	  main.c \
 	  my_put_pixel.c \
+	  clear_window.c
 
 NAME	= raytracer1
 

@@ -5,7 +5,7 @@
 ** Login   <b00bix@epitech.net>
 ** 
 ** Started on  Tue Feb  7 13:39:46 2017 Matthieu BRAULT
-** Last update Sun Mar  5 18:18:31 2017 Matthieu BRAULT
+** Last update Thu Mar 16 14:07:48 2017 Matthieu BRAULT
 */
 
 #ifndef RAYTRACER1_H_
@@ -15,6 +15,7 @@
 #include "struct.h"
 
 sfVector3f	calc_dir_vector(float dist_to_plane, sfVector2i screen_size, sfVector2i screen_pos);
+void		my_translate(t_my_framebuffer *buffer, t_sf_function *sf);
 sfVector3f	translate(sfVector3f to_translate, sfVector3f translations);
 sfVector3f	rotate_xyz(sfVector3f to_rotate, sfVector3f angles);
 sfVector3f	rotate_zyx(sfVector3f to_rotate, sfVector3f angles);

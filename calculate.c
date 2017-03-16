@@ -5,7 +5,7 @@
 ** Login   <b00bix@epitech.net>
 ** 
 ** Started on  Thu Feb  9 14:51:38 2017 Matthieu BRAULT
-** Last update Tue Mar 14 13:34:56 2017 Matthieu BRAULT
+** Last update Thu Mar 16 14:22:16 2017 Matthieu BRAULT
 */
 
 #include <SFML/Graphics.h>
@@ -15,26 +15,18 @@
 void	my_aff(sfVector3f form, float plane, t_my_framebuffer *buffer,
 	       sfVector2i pos)
 {
-  /* if (form.x > 0) */
-  /*   my_put_pixel(buffer, pos.y, pos.x, sfRed); */
-  /* if ((form.y < form.x && form.y > 0) || form.x < 0) */
-  /*   my_put_pixel(buffer, pos.y, pos.x, sfGreen); */
-  /* if ((form.z < form.y && from.z > 0) ||) */
-  /*   my_put_pixel(buffer, pos.y, pos.x, sfYellow); */
-  /* if (plane < form.z && plane > 0) */
-  /*   my_put_pixel( */
-  if (form.x > 0 && plane > 0)
+  plane = plane;
+  if (form.x > 0 && form.z > 0)
     {
-      if (form.x < plane)
+      if (form.x < form.z)
 	my_put_pixel(buffer, pos.y, pos.x, sfBlue);
       else
 	my_put_pixel(buffer, pos.y, pos.x, sfGreen);
     }
   else if (form.x > 0)
     my_put_pixel(buffer, pos.y, pos.x, sfBlue);
-  else if (plane > 0)
+  else if (form.z > 0)
     my_put_pixel(buffer, pos.y, pos.x, sfGreen);
-  
 }
 
 void	my_calculate(t_my_framebuffer *buffer)
@@ -46,7 +38,6 @@ void	my_calculate(t_my_framebuffer *buffer)
   float		plane;
 
   buffer->pos.x = 0;
-  buffer->eye_pos = ((sfVector3f) {-500, 0, 0});
   screen_size = ((sfVector2i) {buffer->width, buffer->height});
   while (buffer->pos.x <= screen_size.y)
     {
