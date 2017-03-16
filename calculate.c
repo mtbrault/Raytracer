@@ -5,7 +5,7 @@
 ** Login   <b00bix@epitech.net>
 ** 
 ** Started on  Thu Feb  9 14:51:38 2017 Matthieu BRAULT
-** Last update Thu Mar  9 17:19:05 2017 Matthieu BRAULT
+** Last update Tue Mar 14 13:34:56 2017 Matthieu BRAULT
 */
 
 #include <SFML/Graphics.h>
@@ -46,8 +46,8 @@ void	my_calculate(t_my_framebuffer *buffer)
   float		plane;
 
   buffer->pos.x = 0;
+  buffer->eye_pos = ((sfVector3f) {-500, 0, 0});
   screen_size = ((sfVector2i) {buffer->width, buffer->height});
-  buffer->eye_pos = ((sfVector3f) {-1000, 0, 20});
   while (buffer->pos.x <= screen_size.y)
     {
       buffer->pos.y = 0;
@@ -55,7 +55,7 @@ void	my_calculate(t_my_framebuffer *buffer)
 	{
 	  coord = ((sfVector2i) {buffer->pos.y, buffer->pos.x});
 	  dir_vector = calc_dir_vector(500, screen_size, coord);
-	  form.x = intersect_sphere(buffer->eye_pos, dir_vector, 400);
+	  form.x = intersect_sphere(buffer->eye_pos, dir_vector, 200);
 	  form.y = intersect_cylinder(buffer->eye_pos, dir_vector, 150);
 	  plane = intersect_plane(buffer->eye_pos, dir_vector);
 	  form.z = intersect_cone(buffer->eye_pos, dir_vector, 20);

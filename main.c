@@ -5,7 +5,7 @@
 ** Login   <b00bix@epitech.net>
 ** 
 ** Started on  Wed Feb  8 16:43:45 2017 Matthieu BRAULT
-** Last update Tue Feb 28 18:59:33 2017 Matthieu BRAULT
+** Last update Mon Mar 13 22:21:22 2017 Matthieu BRAULT
 */
 
 #include <stdlib.h>
@@ -46,7 +46,7 @@ void	*buffer_create(t_my_framebuffer *buff, int width, int height)
   return ("");
 }
 
-void	window_open(t_sf_function *sf)
+void	window_open(t_sf_function *sf, t_my_framebuffer *buff)
 {
   while (sfRenderWindow_isOpen(sf->window))
     {
@@ -75,6 +75,7 @@ int	main()
     return (84);
   buff->width = SCREEN_WIDTH;
   buff->height = SCREEN_HEIGHT;
+  buff->eye_pos = ((sfVector3f) {-1000, 0, 0});
   sf->window = create_window("Raytracer 1", buff->width, buff->height);
   if (buffer_create(buff, buff->width, buff->height) == NULL)
     return (84);
@@ -84,6 +85,6 @@ int	main()
   my_calculate(buff);
   sfTexture_updateFromPixels(sf->texture, buff->pixels, buff->width,
 			     buff->height, 0, 0);
-  window_open(sf);
+  window_open(sf, buff);
   return (0);
 }
