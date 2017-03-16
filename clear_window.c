@@ -5,7 +5,7 @@
 ** Login   <b00bix@epitech.net>
 ** 
 ** Started on  Thu Mar 16 13:38:19 2017 Matthieu BRAULT
-** Last update Thu Mar 16 14:07:04 2017 Matthieu BRAULT
+** Last update Thu Mar 16 16:31:46 2017 Matthieu BRAULT
 */
 
 #include <raytracer1.h>
@@ -27,6 +27,7 @@ void	clear_window(t_my_framebuffer *buffer)
       x = x + 1;
     }
 }
+
 void	my_translate2(t_my_framebuffer *buff, t_sf_function *sf)
 {
   if (sfKeyboard_isKeyPressed(sfKeyRight))
@@ -52,7 +53,7 @@ void	my_translate2(t_my_framebuffer *buff, t_sf_function *sf)
       my_calculate(buff);
       sfTexture_updateFromPixels(sf->texture, buff->pixels, buff->width,
 				 buff->height, 0, 0);
-    } 
+    }
 }
 void	my_translate(t_my_framebuffer *buff, t_sf_function *sf)
 {
