@@ -5,7 +5,7 @@
 ** Login   <b00bix@epitech.net>
 ** 
 ** Started on  Thu Mar 16 13:38:19 2017 Matthieu BRAULT
-** Last update Thu Mar 16 16:31:46 2017 Matthieu BRAULT
+** Last update Thu Mar 16 18:20:44 2017 Matthieu BRAULT
 */
 
 #include <raytracer1.h>
@@ -28,13 +28,13 @@ void	clear_window(t_my_framebuffer *buffer)
     }
 }
 
-void	my_translate2(t_my_framebuffer *buff, t_sf_function *sf)
+void	my_translate2(t_my_framebuffer *buff, t_sf_function *sf, t_form *form)
 {
   if (sfKeyboard_isKeyPressed(sfKeyRight))
     {
       buff->eye_pos = translate(buff->eye_pos, ((sfVector3f) {0, -100, 0}));
       clear_window(buff);
-      my_calculate(buff);
+      my_calculate(buff, form);
       sfTexture_updateFromPixels(sf->texture, buff->pixels, buff->width,
 				 buff->height, 0, 0);
     }
@@ -42,7 +42,7 @@ void	my_translate2(t_my_framebuffer *buff, t_sf_function *sf)
     {
       buff->eye_pos = translate(buff->eye_pos, ((sfVector3f) {0, 100, 0}));
       clear_window(buff);
-      my_calculate(buff);
+      my_calculate(buff, form);
       sfTexture_updateFromPixels(sf->texture, buff->pixels, buff->width,
 				 buff->height, 0, 0);
     }
@@ -50,18 +50,18 @@ void	my_translate2(t_my_framebuffer *buff, t_sf_function *sf)
     {
       buff->eye_pos = translate(buff->eye_pos, ((sfVector3f) {100, 0, 0}));
       clear_window(buff);
-      my_calculate(buff);
+      my_calculate(buff, form);
       sfTexture_updateFromPixels(sf->texture, buff->pixels, buff->width,
 				 buff->height, 0, 0);
     }
 }
-void	my_translate(t_my_framebuffer *buff, t_sf_function *sf)
+void	my_translate(t_my_framebuffer *buff, t_sf_function *sf, t_form *form)
 {
   if (sfKeyboard_isKeyPressed(sfKeyDown))
     {
       buff->eye_pos = translate(buff->eye_pos, ((sfVector3f) {-100, 0, 0}));
       clear_window(buff);
-      my_calculate(buff);
+      my_calculate(buff, form);
       sfTexture_updateFromPixels(sf->texture, buff->pixels, buff->width,
 				 buff->height, 0, 0);
     }
@@ -69,7 +69,7 @@ void	my_translate(t_my_framebuffer *buff, t_sf_function *sf)
     {
       buff->eye_pos = translate(buff->eye_pos, ((sfVector3f) {0, 0, 100}));
       clear_window(buff);
-      my_calculate(buff);
+      my_calculate(buff, form);
       sfTexture_updateFromPixels(sf->texture, buff->pixels, buff->width,
 				 buff->height, 0, 0);
     }
@@ -77,9 +77,9 @@ void	my_translate(t_my_framebuffer *buff, t_sf_function *sf)
     {
       buff->eye_pos = translate(buff->eye_pos, ((sfVector3f) {0, 0, -100}));
       clear_window(buff);
-      my_calculate(buff);
+      my_calculate(buff, form);
       sfTexture_updateFromPixels(sf->texture, buff->pixels, buff->width,
 				 buff->height, 0, 0);
     }
-  my_translate2(buff, sf);
+  my_translate2(buff, sf, form);
 }
