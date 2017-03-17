@@ -5,7 +5,7 @@
 ** Login   <b00bix@epitech.net>
 ** 
 ** Started on  Wed Feb  8 16:43:45 2017 Matthieu BRAULT
-** Last update Thu Mar 16 18:49:30 2017 Matthieu BRAULT
+** Last update Sat Mar 18 00:25:33 2017 Matthieu BRAULT
 */
 
 #include <stdlib.h>
@@ -54,9 +54,9 @@ void	window_open(t_sf_function *sf, t_my_framebuffer *buff, t_form *form)
 	{
 	  my_translate(buff, sf, form);
 	  if ((sf->event.type == sfEvtClosed))
-	    sfRenderWindow_close(sf->window);
+	    return ;
 	  if (sfKeyboard_isKeyPressed(sfKeyEscape))
-	    sfRenderWindow_close(sf->window);
+	    return ;
 	}
       sfRenderWindow_clear(sf->window, sfBlack);
       sfRenderWindow_drawSprite(sf->window, sf->sprite, NULL);

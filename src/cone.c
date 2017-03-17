@@ -5,7 +5,7 @@
 ** Login   <b00bix@epitech.net>
 ** 
 ** Started on  Sun Feb 26 15:44:24 2017 Matthieu BRAULT
-** Last update Thu Mar 16 16:42:21 2017 Matthieu BRAULT
+** Last update Sat Mar 18 00:21:48 2017 Matthieu BRAULT
 */
 
 #include <SFML/Graphics.h>
@@ -43,7 +43,7 @@ sfVector3f	get_normal_cone(sfVector3f intersection_point, float semiangle)
 {
   sfVector3f	cone;
 
-  semiangle = semiangle * (M_PI / 180);
+  semiangle = (M_PI / 2.0) - (semiangle * M_PI / 180);
   cone.x = intersection_point.x;
   cone.y = intersection_point.y;
   cone.z = intersection_point.z * -semiangle;

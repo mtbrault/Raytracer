@@ -5,7 +5,7 @@
 ** Login   <b00bix@epitech.net>
 ** 
 ** Started on  Thu Feb  9 14:51:38 2017 Matthieu BRAULT
-** Last update Thu Mar 16 18:50:22 2017 Matthieu BRAULT
+** Last update Thu Mar 16 19:00:43 2017 Matthieu BRAULT
 */
 
 #include <SFML/Graphics.h>
@@ -17,7 +17,7 @@ void	my_aff(t_form *form, t_my_framebuffer *buffer,
 {
   sfVector3f	light_point;
 
-  light_point = ((sfVector3f) {200, 0, 0});
+  light_point = ((sfVector3f) {0, -100, 50});
   if (form->plane > 0)
     my_plane(form, buffer, pos, light_point);
   if (form->sphere > 0)
